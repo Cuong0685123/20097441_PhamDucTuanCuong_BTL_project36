@@ -1,0 +1,100 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-button {
+            margin-left: auto;
+        }
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+        .main-nav ul li {
+            margin-right: 20px;
+        }
+        .main-nav .category-button {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <div class="top-nav">
+            <ul>
+                <li>Giao hàng nhanh</li>
+                <li>Hoàn tiền</li>
+                <li>Liên hệ</li>
+                <li class="login-button">
+                    <a href="/20097441_PhamDucTuanCuong_BTL/login.jsp"><button>Đăng nhập</button></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+      <nav class="main-nav">
+        <ul>
+            <li class="category-button">
+                <a href="/20097441_PhamDucTuanCuong_BTL/products"><button>Danh mục sản phẩm</button></a>
+            </li>
+            <li>
+                <a href="/20097441_PhamDucTuanCuong_BTL/aboutUs.jsp"><button>Về chúng tôi</button></a>
+            </li>
+            <li>Bản tin mỗi ngày</li>
+        </ul>
+        <div class="search">
+            <input type="text" placeholder="Nhập nội dung tìm kiếm...">
+            <button>Tìm kiếm</button>
+        </div>
+        <c:if test="${sessionScope.role == 'employee'}">
+            <div class="add-product">
+                <a href="/20097441_PhamDucTuanCuong_BTL/addProduct.jsp">
+                    <button>Thêm sản phẩm</button>
+                </a>
+            </div>
+        </c:if>
+    </nav>
+    <main>
+        <h2>Giỏ hàng</h2>
+        <c:if test="${cart != null && !cart.items.isEmpty()}">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Tổng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="entry" items="${cart.items}">
+                        <tr>
+                            <td>${entry.key.name}</td>
+                            <td>${entry.value}</td>
+                            <td>${entry.key.price}</td>
+                            <td>${entry.key.price * entry.value}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            <p>Tổng giá: ${cart.totalPrice}</p>
+            <a href="checkout.jsp"><button>Thanh toán</button></a>
+        </c:if>
+        <c:if test="${cart == null || cart.items.isEmpty()}">
+            <p>Giỏ hàng trống</p>
+        </c:if>
+    </main>
+    <footer>
+        <p>&copy; 2024 Quà Quê Việt</p>
+    </footer>
+</div>
+</body>
+</html>
