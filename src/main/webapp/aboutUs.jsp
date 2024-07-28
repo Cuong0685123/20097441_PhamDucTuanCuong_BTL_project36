@@ -6,31 +6,92 @@
     <title>Về Chúng Tôi</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .login-button {
-            margin-left: auto;
-        }
-        .main-nav ul {
-            display: flex;
-            list-style: none;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
             padding: 0;
+            background-color: #f5f5f5;
         }
-        .main-nav ul li {
-            margin-right: 20px;
-        }
-        .main-nav .category-button {
-            margin-left: auto;
-        }
+        
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e60000;
+            padding: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .top-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .top-nav ul li {
+            color: white;
+        }
+        
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #a00000;
+            padding: 10px;
+        }
+        
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+        
+        .main-nav ul li {
+            color: white;
+        }
+        
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .search input {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .search button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0000;
+            color: white;
+        }
+        
+        main {
+            padding: 20px;
+        }
+        
         .about-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
+            text-align: left; /* Căn trái các dòng ghi chú */
         }
+        
         .about-section img {
             max-width: 100%;
             height: auto;
@@ -60,7 +121,7 @@
             <li class="category-button">
                 <a href="/20097441_PhamDucTuanCuong_BTL/products"><button>Danh mục sản phẩm</button></a>
             </li>
-            <li>Về chúng tôi</li>
+            <li><a href="/20097441_PhamDucTuanCuong_BTL/about.jsp"><button>Về chúng tôi</button></a></li>
             <li>Bản tin mỗi ngày</li>
         </ul>
         <div class="search">
